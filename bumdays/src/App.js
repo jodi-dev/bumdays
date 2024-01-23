@@ -1,13 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 import MyChart from './MyChart';
+import theme from './Theme';
+import AppBar from './AppBar';
+import Upload from './Upload';
+import { Typography, Paper } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Testing Chartjs</h1>
-      <MyChart />
-    </div>
+    <ThemeProvider theme={theme}>
+      <AppBar />
+      <div>
+        <Paper elevation={0} style={{ padding: '1rem', marginTop: '0.5rem' }}>
+          <Typography>Testing Chartjs</Typography>
+          <Upload />
+        </Paper>
+      </div>
+      <div>
+        <Paper elevation={0} style={{ padding: '1rem', marginTop: '0.5rem' }}>
+          <MyChart />
+        </Paper>
+      </div>
+    </ThemeProvider>
   );
 }
 

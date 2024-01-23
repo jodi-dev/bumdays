@@ -8,17 +8,20 @@ const MyChart = () => {
     useEffect(() => {
       // Accessing the rendering context (ctx) from the canvas
       const ctx = chartRef.current.getContext('2d');
+
+      // Your chart data
+      const dataPoints = [10, 20, 30, 20, 50, 13, 24];
   
-      // Your chart data and options
       const data = {
-        labels: ['Label 1', 'Label 2', 'Label 3'],
+        labels: Array.from({ length: dataPoints.length }, (_, index) => `Label ${index + 1}`),
         datasets: [
           {
             label: 'My Dataset',
-            data: [10, 20, 30],
+            data: dataPoints,
             backgroundColor: 'rgba(75,192,192,0.2)',
             borderColor: 'rgba(75,192,192,1)',
             borderWidth: 1,
+            fill: false,
           },
         ],
       };
@@ -29,7 +32,7 @@ const MyChart = () => {
   
       // Creating the chart
       const myChart = new Chart(ctx, {
-        type: 'bar', // or any other chart type
+        type: 'line',
         data: data,
         options: options,
       });
@@ -42,7 +45,6 @@ const MyChart = () => {
   
     return (
       <div>
-        <h2>My Chart</h2>
         <canvas ref={chartRef}></canvas>
       </div>
     );
