@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
 export default function ButtonAppBar() {
   return (
