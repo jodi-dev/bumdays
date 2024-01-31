@@ -12,17 +12,6 @@ const MyChart = ({ chartData }) => {
       // dummy data
       // const dataPoints = [10, 20, 30, 20, 50, 13, 24];
 
-      // if (chartData === null) {
-      //   console.log("Chart data is null");
-      //   return;
-      // } else {
-      //   console.log("from MyChart: ", chartData[0])
-      // }
-
-      // if (Array.isArray(chartData[0])) {
-      //   console.log("chart data is an array");
-      // }
-
       // Set staticData to chartData when it changes
       if (chartData !== null && Array.isArray(chartData[0])) {
         setDataPoints(chartData[0]);
@@ -30,6 +19,16 @@ const MyChart = ({ chartData }) => {
       } else {
         console.log("test");
       }
+
+      if (chartData === null) {
+        console.log("Chart data is null");
+      } else {
+        console.log("from MyChart: ", chartData[0])
+      }
+
+      // if (Array.isArray(chartData[0])) {
+      //   console.log("chart data is an array");
+      // }
   
       const data = {
         labels: Array.from({ length: dataPoints.length }, (_, index) => `Label ${index + 1}`),
@@ -55,12 +54,15 @@ const MyChart = ({ chartData }) => {
         data: data,
         options: options,
       });
+      
   
         // Cleanup on component unmount
         return () => {
           myChart.destroy();
         };
-      }, [chartData]); 
+      }, [chartData, dataPoints]); 
+
+      
   
     return (
       <div>
