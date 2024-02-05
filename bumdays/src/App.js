@@ -1,10 +1,11 @@
 import './App.css';
 import React, { useState } from 'react';
 import MyChart from './MyChart';
-import theme from './Theme';
 import AppBar from './AppBar';
-import { Typography, Paper } from '@mui/material';
+import { Typography, Paper, Card, CardContent, Grid, Container } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
+import theme from './Theme';
+import Toggler from './Toggler';
 
 function App() {
   const [csvData, setCsvData] = useState([]);
@@ -42,17 +43,53 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AppBar />
-      <div>
-        <Paper elevation={0} style={{ padding: '1rem', marginTop: '0.5rem' }}>
-          <Typography>Testing Chartjs</Typography>
-          <input type="file" onChange={handleFileChange} />
-        </Paper>
-      </div>
-      <div>
-        <Paper elevation={0} style={{ padding: '1rem', marginTop: '0.5rem' }}>
-          <MyChart chartData={csvData}/>
-        </Paper>
-      </div>
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            <Card sx={{ maxWidth: 300 }}>
+            <CardContent>
+              <Typography style={{color: '#bdbdbd'}}gutterBottom variant="h9" component="div">
+                Card 1
+              </Typography>
+              <Typography component="div">
+                Lorem Ipsum
+              </Typography>
+              </CardContent>
+            </Card>
+            <Card sx={{ maxWidth: 300 }}>
+            <CardContent>
+              <Typography style={{color: '#bdbdbd'}}gutterBottom variant="h9" component="div">
+                Card 2
+              </Typography>
+              <Typography component="div">
+                Lorem Ipsum
+              </Typography>
+              </CardContent>
+            </Card>
+            <Card sx={{ maxWidth: 300 }}>
+            <CardContent>
+              <Typography style={{color: '#bdbdbd'}}gutterBottom variant="h9" component="div">
+                Card 3
+              </Typography>
+              <Typography component="div">
+                Lorem Ipsum
+              </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={8}>
+              <Paper elevation={1} style={{ textAlign: 'right', padding: '1rem', marginTop: '0.5rem' }}>
+                <Toggler/>
+            </Paper>
+            <Paper elevation={1} style={{ padding: '1rem', marginTop: '0.5rem' }}>
+              <MyChart chartData={csvData}/>
+            </Paper>
+            <Paper elevation={1} style={{ textAlign: 'right', padding: '1rem', marginTop: '0.5rem' }}>
+              <input type="file" onChange={handleFileChange} />
+            </Paper>
+        </Grid>
+        </Grid>
+      </Container>
     </ThemeProvider>
   );
 }
