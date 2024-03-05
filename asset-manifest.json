@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/bumdays/static/css/main.f855e6bc.css",
-    "main.js": "/bumdays/static/js/main.38734cf0.js",
+    "main.js": "/bumdays/static/js/main.846af540.js",
     "static/js/787.e7e74cd0.chunk.js": "/bumdays/static/js/787.e7e74cd0.chunk.js",
+    "static/media/logo.png": "/bumdays/static/media/logo.0b14efc6164d4bfc07cd.png",
     "index.html": "/bumdays/index.html",
     "main.f855e6bc.css.map": "/bumdays/static/css/main.f855e6bc.css.map",
-    "main.38734cf0.js.map": "/bumdays/static/js/main.38734cf0.js.map",
+    "main.846af540.js.map": "/bumdays/static/js/main.846af540.js.map",
     "787.e7e74cd0.chunk.js.map": "/bumdays/static/js/787.e7e74cd0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.38734cf0.js"
+    "static/js/main.846af540.js"
   ]
 }
