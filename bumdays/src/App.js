@@ -2,10 +2,12 @@ import './App.css';
 import React, { useState } from 'react';
 import MyChart from './MyChart';
 import AppBar from './AppBar';
-import { Typography, Paper, Card, CardContent, Grid, Container } from '@mui/material';
+import { Box, Typography, Paper, Card, CardContent, Grid, Container } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './Theme';
 import Toggler from './Toggler';
+import KPI_cards from './KPI_cards';
+import Header from './Header';
 
 function App() {
   const [csvData, setCsvData] = useState([]);
@@ -43,39 +45,18 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AppBar />
+      <Box sx={{
+        backgroundColor: '#ffc0cb', // Replace with your desired background color
+        minHeight: '100vh', // 100% of the viewport height
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        }}>
       <Container>
         <Grid container spacing={2}>
+          <Header />
           <Grid item xs={4}>
-            <Card sx={{ maxWidth: 300 }}>
-            <CardContent>
-              <Typography style={{color: '#bdbdbd'}}gutterBottom variant="h9" component="div">
-                Card 1
-              </Typography>
-              <Typography component="div">
-                Lorem Ipsum
-              </Typography>
-              </CardContent>
-            </Card>
-            <Card sx={{ maxWidth: 300 }}>
-            <CardContent>
-              <Typography style={{color: '#bdbdbd'}}gutterBottom variant="h9" component="div">
-                Card 2
-              </Typography>
-              <Typography component="div">
-                Lorem Ipsum
-              </Typography>
-              </CardContent>
-            </Card>
-            <Card sx={{ maxWidth: 300 }}>
-            <CardContent>
-              <Typography style={{color: '#bdbdbd'}}gutterBottom variant="h9" component="div">
-                Card 3
-              </Typography>
-              <Typography component="div">
-                Lorem Ipsum
-              </Typography>
-              </CardContent>
-            </Card>
+            <KPI_cards />
           </Grid>
           <Grid item xs={8}>
               <Paper elevation={1} style={{ textAlign: 'right', padding: '1rem', marginTop: '0.5rem' }}>
@@ -90,6 +71,7 @@ function App() {
         </Grid>
         </Grid>
       </Container>
+      </Box>
     </ThemeProvider>
   );
 }

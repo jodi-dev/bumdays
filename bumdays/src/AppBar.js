@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { IconButton } from '@mui/material';
+import logo from './assets/logo.png';
 
 export default function ButtonAppBar() {
   return (
@@ -17,7 +18,7 @@ export default function ButtonAppBar() {
                 aria-label="menu"
                 sx={{ mr: 2 }}
             >
-            <FavoriteIcon />
+            <img src={logo} alt="Logo" style={{ width: '50px', height: 'auto' }} />
             </IconButton>
         </Toolbar>
       </AppBar>
