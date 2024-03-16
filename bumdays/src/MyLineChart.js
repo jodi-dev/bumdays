@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState} from 'react';
 import Chart from 'chart.js/auto';
 
-const MyChart = ({ chartData }) => {
+const MyLineChart = ({ chartData }) => {
     const chartRef = useRef(null);
     const [dataPoints, setDataPoints] = useState([]);
   
@@ -9,8 +9,8 @@ const MyChart = ({ chartData }) => {
       // Accessing the rendering context (ctx) from the canvas
       const ctx = chartRef.current.getContext('2d');
 
-      // dummy data
-      // const dataPoints = [10, 20, 30, 20, 50, 13, 24];
+      // testing second dataset
+      const dataPoints2 = [10, 20, 30, 20, 50, 13, 24];
 
       // Set staticData to chartData when it changes
       if (chartData !== null && Array.isArray(chartData[0])) {
@@ -34,10 +34,18 @@ const MyChart = ({ chartData }) => {
         labels: Array.from({ length: dataPoints.length }, (_, index) => `Label ${index + 1}`),
         datasets: [
           {
-            label: 'My Dataset',
+            label: 'Dataset 1',
             data: dataPoints,
             backgroundColor: 'rgba(75,192,192,0.2)',
             borderColor: 'rgba(75,192,192,1)',
+            borderWidth: 1,
+            fill: false,
+          },
+          {
+            label: 'Dataset 2',
+            data: dataPoints2,
+            backgroundColor: 'rgba(75,132,132,0.2)',
+            borderColor: 'rgba(75,132,132,1)',
             borderWidth: 1,
             fill: false,
           },
@@ -46,6 +54,16 @@ const MyChart = ({ chartData }) => {
   
       const options = {
         // Your chart options here
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'My Lines'
+          }
+        }
       };
   
       // Creating the chart
@@ -71,4 +89,4 @@ const MyChart = ({ chartData }) => {
     );
   };
   
-  export default MyChart;
+  export default MyLineChart;

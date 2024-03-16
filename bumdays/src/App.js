@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
-import MyChart from './MyChart';
+import MyLineChart from './MyLineChart';
+import MyBarChart from './MyBarChart';
 import AppBar from './AppBar';
 import { Box, Typography, Paper, Card, CardContent, Grid, Container } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
@@ -63,7 +64,8 @@ function App() {
                 <Toggler/>
             </Paper>
             <Paper elevation={1} style={{ padding: '1rem', marginTop: '0.5rem' }}>
-              <MyChart chartData={csvData}/>
+              <MyLineChart chartData={csvData}/>
+              <MyBarChart />
             </Paper>
             <Paper elevation={1} style={{ textAlign: 'right', padding: '1rem', marginTop: '0.5rem' }}>
               <input type="file" onChange={handleFileChange} />
